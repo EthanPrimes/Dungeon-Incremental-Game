@@ -1,0 +1,125 @@
+<!-- Read the docstring in gRanks.js for more information -->
+
+<!DOCTYPE html>
+<html>
+<link href="styles.css" rel="stylesheet" type="text/css">
+<head>
+  <title>Dungeon Core Simulator</title>
+</head>
+
+<body>
+  <!-- We have a few divs in the body; the header which displays a lot of information about the game, and then a row div which is broken up into many columns -->
+
+  <div class="header" style="text-align:center" id="header">
+    <!--<h2>You find yourself lying in a cool, dark place.</h2>-->
+    <div class="headerDiv">
+      <h3>Dungeon Core Simulator</h3>
+      <p>You are a <span id="rankDisplay">g-rank-0</span> dungeon core</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!--<div class="column">&nbsp;</div>-->
+
+    <!-- This column holds all the text that explains what is happening. Messages are added periodically as the player progresses -->
+    <div class="column">
+      <u><h4 id="location">A drab cave</h4></u>
+      <span id="text">
+      <p id="p1">your hunger gnaws at you</p>
+      </span>
+    </div>
+
+    <!-- This column contains information about cultivation; your ability to generate and use essence -->
+    <div class="column">
+      <u><h4>Cultivation (<span id="cultivationLevel">I</span>)</h4></u>
+      <button id="essenceButton" type="button" onclick="gainEssence()">Essence</button>
+      <button id="purifyButton" type="button" onclick="purify()" style="display:none">Purify</button>
+      <p>Ambient essence: <span id="ambientEId">0</span>/<span id="maxAmbientEID">20</span></p>
+      <p id="ambientEPS" style="display:none">Ambient Essence: +<span id="EPSOutput">1</span>/second</p>
+      <p id="activeEPC" style="display:none">Active Gain: +<span id="EPCOutput">1</span>/click</p>
+      <p id="passiveEPS" style="display:none">Passive Gain: +<span id="PEPSOutput">0</span>/second</p>
+      <p id="purificationStrength" style="display:none">Purification: +<span id="PPCOutput">1</span>/click</p>
+      <button type="button" class="optionButton" id="coreRepair" style="display:none" onclick="repairCore()">Fix Core: <span id="coreRepairP">175</span> essence</button>
+      <button type="button" class="optionButton" id="cultivationUpgrade" style="display:none" onclick="upgradeCultivation()">Upgrade Cultivation: <span id="cultivationUpgradeP">250</span> essence</button>
+      <span id="optionButtons">
+        <button type="button" class="optionButton" id="option1" style="display:none" onclick="optionFunction(1)"></button>
+        <br>
+        <button type="button" class="optionButton" id="option2" style="display:none" onclick="optionFunction(2)"></button>
+        <br>
+        <button type="button" class="optionButton" id="option3" style="display:none" onclick="optionFunction(3)"></button>
+        <br>
+        <button type="button" class="optionButton" id="option3" style="display:none" onclick="optionFunction(4)"></button>
+      </span>
+    </div>
+
+    <div class="column">
+      <u><h4>Essence pool</h4></u>
+      <p>Capacity: <span id="totalEId">0</span>/<span id="capacityId"></span></p>
+      <p id="pureEP">Pure essence: <span id="pureEId">0</span></p>
+      <table style="text-align:left">
+        <tr>
+          <td>Earth essence: <span id="earthEId">0</span></td>
+        </tr>
+        <tr>
+          <td>Water essence: <span id="waterEId">0</span></td>
+        </tr>
+        <tr>
+          <td>Fire essence: <span id="fireEId">0</span></td>
+        </tr>
+        <tr>
+          <td>Air essence: <span id="airEId">0</span></td>
+        </tr>
+        <tr>
+          <td>Celestial essence: <span id="celestialEId">0</span></td>
+        </tr>
+        <tr>
+          <td>Infernal essence: <span id="infernalEId">0</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="column" id="dungeonMobs" style="display:none">
+      <u><h4>Dungeon</h4></u>
+
+      <!-- Buttons for buying mobs -->
+      <button id="mossBuy" type="button" onclick="buy('moss')">Grow moss: <span id="mossCost"></span> essence</button>
+      <br>
+      <button id="wormBuy" type="button" onclick="buy('worm')">Grow worm: <span id="wormCost"></span> essence</button>
+      <br>
+      <button id="moleBuy" type="button" onclick="buy('mole')">Grow mole: <span id="moleCost"></span> essence</button>
+      <br>
+      <button id="snakeBuy" type="button" onclick="buy('snake')">Grow snake: <span id="snakeCost"></span> essence</button>
+
+      <!-- Table for buying / tracking mobs -->
+      <table id="dungeonMobsTable" style="text-align:left" style="display:none">
+        <tr>
+          <td>Moss: <span id="mossAmount"></span></td>
+          <td>&nbsp&nbsp&nbsp&nbsp</td>
+          <td>Production: +1</td>
+        </tr>
+        <tr>
+          <td>Worms: <span id="wormAmount"></span></td>
+          <td></td>
+          <td>Production: +5</td>
+        </tr>
+        <tr>
+          <td>Moles: <span id="moleAmount"></span></td>
+          <td>&nbsp&nbsp&nbsp&nbsp</td>
+          <td>Production: +20</td>
+        </tr>
+        <tr>
+          <td>Snakes: <span id="snakeAmount"></span></td>
+          <td>&nbsp&nbsp&nbsp&nbsp</td>
+          <td>Production: +100</td>
+        </tr>
+      </table>
+    </div>
+    <div class="column" id="dungeonMap">
+    </div>
+  </div>
+
+  <!-- This script contains a lot of useful functions for the program -->
+  <script src="./gRanks.js"></script>
+  <script src="./usefulFunctions.js"></script>
+</body>
+</html>
