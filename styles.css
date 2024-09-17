@@ -1,0 +1,77 @@
+body {
+	background-color: white;
+  font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: normal;
+	letter-spacing: normal;
+}
+
+/* This divides the screen into different columns */
+.column {
+  float: left;
+  width: 20%;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+/* This is the header div */
+.headerDiv {
+  /* Look up "white color schemes" to find this color: */
+  background-color: #7BBCC4;
+  border: 2px solid black;
+  float: left;   
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  vertical-align: center;
+}
+
+/* This makes a thin column for spacing purposes */
+.thinColumn {
+  float: left;
+  width: 10%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Centers data in tables */
+td {
+  text-align: left;
+}
+
+button {
+  width: 35%;
+  background-color: white;
+  position: relative;
+	text-align: center;
+	border: 1px solid black;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+button:active {
+  background-color: #EEE;
+}
+
+.optionButton {
+  width: 75%;
+  background-color: white;
+  padding: 6px 10px;
+}
+
+.optionButton:active {
+  background-color: #EEE;
+}
